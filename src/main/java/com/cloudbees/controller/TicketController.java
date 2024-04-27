@@ -22,7 +22,7 @@ import com.cloudbees.service.exception.TicketNotFoundException;
 public class TicketController {
 	@Autowired
 	TicketService ticketService;
-	//Adding test comment1
+	//Adding a new comment for merge conflict
 	@ExceptionHandler(TicketNotFoundException.class)
 	@GetMapping("/viewTicket/{id}")
 	public HashMap<String, Object> viewTicket(@PathVariable int id){
