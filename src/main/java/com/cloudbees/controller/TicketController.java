@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,12 +16,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cloudbees.model.TicketsEntity;
 import com.cloudbees.service.TicketService;
+import com.cloudbees.service.exception.TicketNotFoundException;
 
 @RestController
 public class TicketController {
 	@Autowired
 	TicketService ticketService;
-	
+	//Adding test comment
+	@ExceptionHandler(TicketNotFoundException.class)
 	@GetMapping("/viewTicket/{id}")
 	public HashMap<String, Object> viewTicket(@PathVariable int id){
 		return ticketService.viewTicket(id);
